@@ -1,12 +1,18 @@
 echo "Welcome to Employee Wage Computation"
-isPresent=0
-isAbsent=1
+Fulltime=0
+Parttime=1
+isAbsent=2
 empwageperhr=20
-empcheck=$((RANDOM%2))
-if [ $isPresent -eq $empcheck ]
+empcheck=$((RANDOM%3))
+if [ $Fulltime -eq $empcheck ]
 then 
     workinghr=8
-     echo "Employee is Present"
+     echo "Employee is Fulltime"
+elif [ $Parttime -eq $empcheck ]
+then
+    workinghr=4
+     echo "Employee is Parttime"
+
 else
     workinghr=0
      echo "Employee is Absent"
