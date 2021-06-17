@@ -1,4 +1,5 @@
 echo "Welcome to Employee Wage Computation"
+declare -a dailywage
 Fulltime=0
 Parttime=1
 isAbsent=2
@@ -27,8 +28,10 @@ for (( i=0; i<20 && $TotalWorkingHr<100; i++ ))
 do
  	empcheck=$((RANDOM%3))
 	workinghr="$( getWorkingHrs $empcheck )"
+	dailywage[i]=$((workinghr*empwageperhr))
 	TotalWorkingHr=$((TotalWorkingHr+workinghr))
 
 done
+echo "Employee Daily Wage : ${dailywage[@]}"
 monthsalary=$((empwageperhr*TotalWorkingHr))
 echo "Employee Monthly Wage:  $monthsalary"
